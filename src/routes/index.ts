@@ -9,11 +9,11 @@ const app = new Hono();
 app.get("/", (c) => c.text("Vladimir's Portfolio API"));
 
 // Middleware
-app.use("/api/message/*", corsMiddleware);
-app.use("/api/message/*", limiterMiddleware);
+app.use("/api/send-email/*", corsMiddleware);
+app.use("/api/send-email/*", limiterMiddleware);
 
 // Routes
-app.post("/api/message", postMessage);
+app.post("/api/send-email", postMessage);
 
 // Not found handler
 app.notFound((c) => c.json({ error: "Resource not found" }, 404));
