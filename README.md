@@ -35,8 +35,8 @@ To run this project, you will need these environment variables on your .env:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/InfVlad/portfolio-email-service.git
+   cd portfolio-email-service
    ```
 
 2. Install dependencies:
@@ -65,3 +65,13 @@ To send an email, make a POST request to the `/send-email` endpoint with the fol
   "message": "Your email message"
 }
 ```
+
+### Deployment
+
+To bundle and minify the app for deployment you can run:
+
+```sh
+bun run build
+```
+
+Then copy the files inside the dist folder
