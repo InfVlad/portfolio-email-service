@@ -2,12 +2,15 @@
   "name": "le-app",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
-    "build": "bun build src/index.ts --outdir ./dist --minify"
+    "build": "bun build src/index.ts --outdir ./dist --minify --target bun"
   },
   "dependencies": {
-    "hono": "^4.5.11"
+    "hono": "^4.5.11",
+    "nodemailer": "^6.9.15",
+    "valibot": "^0.41.0"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/nodemailer": "^6.4.15"
   }
 }
