@@ -1,3 +1,6 @@
 import app from "./routes";
 
-export default app;
+export default {
+  port: process.env.PORT,
+  fetch: app.fetch,
+};
