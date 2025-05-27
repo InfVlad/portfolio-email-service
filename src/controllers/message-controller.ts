@@ -19,7 +19,7 @@ export const postMessage = async (c: Context) => {
 
     const { name, email, subject, message } = parsedResult.output;
 
-    const transporter = createTransport({
+    const transportConfig = {
       host: process.env.EMAIL_SERVICE,
       port: 587,
       secure: false,
@@ -31,20 +31,25 @@ export const postMessage = async (c: Context) => {
         ciphers: "SSLv3",
         rejectUnauthorized: false,
       },
-    });
+    };
 
-    const info = await transporter.sendMail({
+    const emailToSend = {
       from: process.env.EMAIL_SENDER,
       to: process.env.EMAIL_DESTINY,
       subject: "Hello! Someone sent you a message from your Portfolio!",
       text: `${name} \nemail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
-    });
+    };
+
+    const transporter = createTransport(transportConfig);
+
+    const info = await transporter.sendMail(emailToSend);
 
     if (process.env.DEBUG === "true") {
       console.log("Message sent: %s", info.messageId, "contact email:", email);
     }
 
     return c.json({
+      success: true,
       message: `${name}, thank you for your message!`,
     });
   } catch (error) {
