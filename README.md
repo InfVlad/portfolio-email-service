@@ -64,7 +64,7 @@ INTERPRETER="/home/someuser/.bun/bin/bun"
 
 #### Sending an Email
 
-To send an email, make a POST request to the `/send-email` endpoint with the following JSON payload:
+To send an email, make a POST request to the `/api/send-email` endpoint with the following JSON payload:
 
 ```json
 {
@@ -109,7 +109,7 @@ module.exports = {
       name: "portfolio-mailer", // Name of your application
       script: "./dist/index.js", // Entry point of your application
       interpreter: process.env.INTERPRETER, // Path to the Bun interpreter
-      args: ["run"], // Arguments to pass to Bun, e.g., "bun run"
+      args: "run", // Arguments to pass to Bun, e.g., "bun run"
       watch: false, // Optional: Enable file watching for development
       max_memory_restart: ["200M"],
     },
