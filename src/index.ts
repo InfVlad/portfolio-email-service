@@ -1,6 +1,6 @@
 import app from "./routes";
 
-export default {
+Bun.serve({
   port: process.env.PORT,
   fetch: app.fetch,
-};
+});
